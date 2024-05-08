@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="grid grid-cols-6 gap-5 my-6 py-6 items-center">
+  <div class="col-span-3">
+    <h2 class="text-xl font-semibold">About me</h2>
+    <p class="my-3 text-lg text-gray-700">
+      I am a web developer with a passion for creating beautiful and functional
+      websites. I have experience in HTML, CSS, JavaScript, and PHP. I am always
+      looking to learn new technologies and improve my skills.
+    </p>
+  </div>
+  <div class="bg-gray-400 col-span-3">
+    <Image
+      src="/images/profile.jpg"
+      alt="Profile picture"
+      width={300}
+      height={300}
+      class={"w-full h-full"}
+    />
+  </div>
+</section>

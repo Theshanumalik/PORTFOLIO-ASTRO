@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+const SocialLinks = [
+  {
+    name: "GitHub",
+    url: "http://www.github.com/theshanumalik",
+    icon: "mdi:github",
+  },
+  {
+    name: "LinkedIn",
+    url: "http://www.linkedin.com/in/theshanumalik",
+    icon: "mdi:linkedin",
+  },
+  {
+    name: "Instagram",
+    url: "http://www.instagram.com/theshanumalik",
+    icon: "mdi:instagram",
+  },
+  {
+    name: "Twitter",
+    url: "http://www.twitter.com/theshanumalik",
+    icon: "mdi:twitter",
+  },
+];
+---
+
+<header class="text-center h-[calc(60vh-70px)]">
+  <Image
+    src={"/images/profile.jpg"}
+    alt={"1x1 Ratio Image of Shanu Malik"}
+    width={150}
+    height={150}
+    format="webp"
+    class={"rounded-full block mx-auto my-6"}
+  />
+  <h1 class="text-3xl font-semibold">👋 Hi, I am Shanu Malik</h1>
+  <p class="my-3 text-gray-700">
+    A passionate <b>MERN stack Developer</b> based in jaipur, INDIA. <br />
+    I love to build web applications and solve problems.
+  </p>
+  <ul class="flex items-center justify-center gap-3">
+    {
+      SocialLinks.map((link) => (
+        <li>
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-700 hover:text-gray-900"
+          >
+            <Icon name={link.icon} size={30} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>
