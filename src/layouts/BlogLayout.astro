@@ -1,14 +1,14 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.astro";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title = "Theshanumalik", description } = Astro.props;
+const { title = "theshanumalik | blog", description } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,9 +22,9 @@ const { title = "Theshanumalik", description } = Astro.props;
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body class="min-h-screen bg-slate-50 w-full">
-    <div class="max-w-5xl mx-auto p-3 w-full">
-      <Navbar client:load />
+  <body class="min-h-screen bg-slate-50">
+    <div class="max-w-5xl mx-auto p-3">
+      <Navbar />
       <slot />
       <Footer />
     </div>

@@ -1,0 +1,84 @@
+---
+title: Astro Tutorial for Beginners
+description: A tutorial for beginners on how to get started with Astro, a modern static site generator.
+date: 2022-10-01
+tags: [astro, static site generator, tutorial]
+featured: true
+image: ./images/astro-tutorial.png
+author: shanu malik
+---
+
+## What is Astro?
+
+Astro is a static site generator that is designed to be fast and easy to use. It is built with modern web technologies like React and TypeScript, and it is designed to be highly performant. Astro is designed to be a modern alternative to traditional static site generators like Jekyll and Hugo, and it is designed to be highly flexible and extensible.
+
+## Getting Started
+
+To get started with Astro, you will need to have Node.js installed on your machine. You can download Node.js from the official website and follow the installation instructions. Once you have Node.js installed, you can create a new Astro project by running the following command in your terminal:
+
+```bash
+npx create-astro
+```
+
+This will create a new Astro project in the current directory and install all of the necessary dependencies. Once the project has been created, you can navigate to the project directory and start the development server by running the following command:
+
+```bash
+npm run dev
+```
+
+This will start the development server and open your default web browser to the Astro project. You can now start building your static site with Astro!
+
+## Building Your Site
+
+Astro uses a file-based routing system, which means that each page in your site is represented by a file in the `src/pages` directory. You can create a new page in your site by creating a new file in the `src/pages` directory with the `.astro` extension. For example, to create a new page called `about`, you would create a new file called `about.astro` in the `src/pages` directory.
+
+Astro also supports layouts, which allow you to define a common layout for all of the pages in your site. You can create a new layout in the `src/layouts` directory by creating a new file with the `.astro` extension. For example, to create a new layout called `default`, you would create a new file called `default.astro` in the `src/layouts` directory.
+
+## Conclusion
+
+In this tutorial, we walked through the basics of Astro and showed you how to get started building your own static site with it. Astro is a modern static site generator that is designed to be fast and easy to use, and it is built with modern web technologies like React and TypeScript. If you are looking for a modern alternative to traditional static site generators like Jekyll and Hugo, Astro is a great choice. Give it a try and see how easy it is to build a fast and performant static site with Astro!
+
+
+### 2. Create a new file in the `src/routes` directory
+
+Create a new file in the `src/routes` directory with the following content:
+
+```tsx
+// src/routes/index.astro
+
+---
+title: "Home"
+---
+
+import React from 'react';
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to Astro!</h1>
+      <p>Astro is a modern static site generator that is designed to be fast and easy to use.</p>
+    </div>
+  );
+}
+```
+
+### 3. Start the development server
+
+Run the following command in your terminal to start the development server:
+
+```bash
+npm run dev
+```
+
+This will start the development server and open your default web browser to the Astro project. You can now start building your static site with Astro!
+
+## Conclusion
+
+In this tutorial, we walked through the basics of Astro and showed you how to get started building your own static site with it. Astro is a modern static site generator that is designed to be fast and easy to use, and it is built with modern web technologies like React and TypeScript. If you are looking for a modern alternative to traditional static site generators like Jekyll and Hugo, Astro is a great choice. Give it a try and see how easy it is to build a fast and performant static site with Astro!
+
+<img src="https://theshanumalik.netlify.app/img/profile.jpg" className="rounded-md w-36 h-36 object-cover" />
+
+## References
+
+- [Astro Documentation](https://docs.astro.build/)
+

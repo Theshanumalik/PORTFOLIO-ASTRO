@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "../../components/PostCard.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const allPosts = await getCollection("posts");
+
+const featuredPosts = allPosts.filter((post) => post.data.featured);
+---
+
+<Layout
+  title="theshanumalik | Blog"
+  description="Blog by TheshanuMalik. I write about web development, software engineering, and other things I find interesting."
+>
+  <main>
+    {
+      featuredPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          tags={post.data.tags}
+          href={`/blog/${post.slug}`}
+          date={post.data.date.toISOString()}
+        />
+      ))
+    }
+  </main>
+</Layout>
