@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { cn } from "../lib/util";
-import { FaBars } from "react-icons/fa6";
+import { FaBars, FaCross } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { FaTimes } from "react-icons/fa";
 
 const menuVariants = {
   hidden: { opacity: 0, x: -25 },
@@ -33,8 +34,8 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="h-[70px] flex items-center justify-between">
-        <a href="/" className="font-semibold">
+      <header className="h-[70px] w-full flex items-center justify-between px-2">
+        <a href="/" className="font-semibold block">
           theshanumalik
         </a>
         <nav className="lg:block hidden">
@@ -70,15 +71,15 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center">
+        <div className="flex items-center relative">
           <a
             href="mailto:theshanumalik@gmail.com"
-            className="hidden lg:flex items-center gap-1 rounded-lg py-1 px-3 pr-4 bg-yellow-400 transition-colors hover:bg-opacity-85"
+            className="hidden lg:flex items-center gap-1 rounded-lg py-1 px-3 bg-yellow-400 transition-colors hover:bg-opacity-85"
           >
             Contact
           </a>
           <button
-            className="absolute z-50 lg:hidden"
+            className="lg:hidden"
             onClick={() => setOpen((prev) => !prev)}
           >
             <FaBars size={24} />
@@ -87,50 +88,58 @@ const Navbar = () => {
       </header>
       {open && (
         <motion.div
-          className="fixed top-0 left-0 w-full h-screen bg-white grid place-items-center"
+          className="fixed top-0 left-0 w-full h-screen bg-white"
           variants={menuVariants}
           animate={"visible"}
           initial={"hidden"}
         >
-          <ul>
-            <motion.li
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="visible"
+          <div className="grid place-items-center w-full h-full relative">
+            <button
+              className="absolute top-5 right-5"
+              onClick={() => setOpen(false)}
             >
-              <a
-                href="/"
-                className={cn(
-                  "flex items-center text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 font-semibold",
-                  {
-                    "text-gray-900": pathname === "/",
-                  }
-                )}
-              >
-                Home
-              </a>
-            </motion.li>
-            {navLinks.map((link) => (
+              <FaTimes size={24} />
+            </button>
+            <ul>
               <motion.li
                 variants={menuItemVariants}
                 initial="hidden"
                 animate="visible"
               >
                 <a
-                  href={link.href}
+                  href="/"
                   className={cn(
-                    "flex items-center text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 font-semibold",
+                    "flex items-center text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 font-semibold text-xl",
                     {
-                      "text-gray-900":
-                        pathname !== "/" && pathname.startsWith(link.href),
+                      "text-gray-900": pathname === "/",
                     }
                   )}
                 >
-                  {link.text}
+                  Home
                 </a>
               </motion.li>
-            ))}
-          </ul>
+              {navLinks.map((link) => (
+                <motion.li
+                  variants={menuItemVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <a
+                    href={link.href}
+                    className={cn(
+                      "flex items-center text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 font-semibold text-xl",
+                      {
+                        "text-gray-900":
+                          pathname !== "/" && pathname.startsWith(link.href),
+                      }
+                    )}
+                  >
+                    {link.text}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
         </motion.div>
       )}
     </>

@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import Hifi from "./Hifi";
 const SocialLinks = [
   {
     name: "GitHub",
@@ -34,7 +35,9 @@ const SocialLinks = [
     format="webp"
     class={"rounded-full block mx-auto my-6"}
   />
-  <h1 class="text-3xl font-semibold">👋 Hi, I am Shanu Malik</h1>
+  <h1 class="text-3xl font-semibold">
+    <Hifi client:load /> Hi, I am Shanu Malik
+  </h1>
   <p class="my-3 text-gray-700">
     A passionate <b>MERN stack Developer</b> based in jaipur, INDIA. <br />
     I love to build web applications and solve problems.

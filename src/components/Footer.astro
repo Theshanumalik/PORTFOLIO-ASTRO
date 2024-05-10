@@ -1,5 +1,43 @@
-<footer>
-  <div class="py-3">
-    <p>&copy; 2024 theshanumalik. All rights reserved.</p>
+---
+import { Icon } from "astro-icon/components";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    icon: "mdi:github",
+    url: "http://www.github.com/theshanumalik",
+  },
+  {
+    name: "LinkedIn",
+    icon: "mdi:linkedin",
+    url: "http://www.linkedin.com/in/theshanumalik",
+  },
+  {
+    name: "Twitter",
+    icon: "mdi:twitter",
+    url: "http://www.twitter.com/theshanumalik",
+  },
+  {
+    name: "Instagram",
+    icon: "mdi:instagram",
+    url: "http://www.instagram.com/theshanumalik",
+  },
+];
+---
+
+<footer class="border-t">
+  <div class="py-4 px-3 flex justify-between items-center">
+    <p>&copy; 2024 theshanumalik.</p>
+    <ul>
+      {
+        socialLinks.map((link) => (
+          <li class="inline-block mx-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
+              <Icon name={link.icon} class="w-6 h-6" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </footer>
