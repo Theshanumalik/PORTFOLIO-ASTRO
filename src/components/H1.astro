@@ -1,0 +1,13 @@
+---
+type Props = {
+  text: string;
+};
+
+const { text } = Astro.props;
+---
+
+<h1
+  class="text-xl font-semibold text-yellow-400 border-b-2 border-yellow-400 inline-block py-2 px-1 pl-0"
+>
+  {text}
+</h1>

@@ -1,0 +1,15 @@
+{
+    "title": "FindMyPG",
+    "description": "FindMyPG is a platform that helps students find the best PGs in their city. It provides a list of PGs with ratings and reviews from other students. Students can also rate and review PGs they have stayed in.",
+    "tags": ["education", "school", "rating", "review", "student"],
+    "technologies": ["React", "Node.js", "Express", "MongoDB"],
+    "image": "./images/digi-chat.png",
+    "imageAlt": "Rate My School",
+    "links": {
+        "github": "www.github.com/ratemyshool",
+        "website": "www.ratemyshool.com",
+        "demo": "www.ratemyshool.com/demo",
+        "article": "www.ratemyshool.com/article"
+    },
+    "date": "2021-10-01"
+}

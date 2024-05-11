@@ -1,0 +1,21 @@
+---
+import H1 from "./H1.astro";
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = await getCollection("projects");
+---
+
+<section title="projects" class="px-3 my-9">
+  <H1 text="Projects" />
+  <p class="my-4 text-gray-600">
+    Over the years, I've worked on various projects, each offering unique
+    challenges and learning experiences. <br /> Below, you'll find some examples
+    of my work. I'm always eager to take on new projects, so if you have an idea
+    in mind, feel <br /> free to get in touch!
+  </p>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-3">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</section>

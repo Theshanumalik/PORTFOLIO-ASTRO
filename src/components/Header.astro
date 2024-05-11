@@ -1,7 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
 import Hifi from "./Hifi";
+import WavyText from "./text-animate";
+import ImageAnimation from "./image-animate";
 const SocialLinks = [
   {
     name: "GitHub",
@@ -27,20 +28,20 @@ const SocialLinks = [
 ---
 
 <header class="text-center h-[calc(60vh-70px)]">
-  <Image
-    src={"/images/profile.jpg"}
-    alt={"1x1 Ratio Image of Shanu Malik"}
-    width={150}
-    height={150}
-    format="webp"
-    class={"rounded-full block mx-auto my-6"}
+  <ImageAnimation
+    client:load
+    src="/images/profile.jpg"
+    wrapperClassName="h-[150px] w-[150px] rounded-full mx-auto my-4 overflow-hidden"
+    imageClassName="h-full w-full object-cover"
+    alt="Profile picture of shanu malik"
   />
-  <h1 class="text-3xl font-semibold">
-    <Hifi client:load /> Hi, I am Shanu Malik
+  <h1 class="text-3xl font-semibold flex justify-center">
+    <Hifi client:load />
+    <WavyText client:load text="Hi, I am Shanu Malik" replay={true} />
   </h1>
   <p class="my-3 text-gray-700">
-    A passionate <b>MERN stack Developer</b> based in jaipur, INDIA. <br />
-    I love to build web applications and solve problems.
+    A passionate <b>MERN Stack Developer</b> based in jaipur, INDIA <br /> I love
+    to build Web applications and solve problems.
   </p>
   <ul class="flex items-center justify-center gap-3">
     {

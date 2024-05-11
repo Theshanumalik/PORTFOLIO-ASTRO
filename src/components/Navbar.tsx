@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "../lib/util";
-import { FaBars, FaCross } from "react-icons/fa6";
+import { FaBars, FaDownload } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
 
@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <>
       <header className="h-[70px] w-full flex items-center justify-between px-2">
-        <a href="/" className="font-semibold block">
+        <a href="/" className="font-semibold block text-lg">
           theshanumalik
         </a>
         <nav className="lg:block hidden">
@@ -73,10 +73,11 @@ const Navbar = () => {
         </nav>
         <div className="flex items-center relative">
           <a
-            href="mailto:theshanumalik@gmail.com"
+            href="/assets/shanu-malik-resume.pdf"
+            download={true}
             className="hidden lg:flex items-center gap-1 rounded-lg py-1 px-3 bg-yellow-400 transition-colors hover:bg-opacity-85"
           >
-            Contact
+            <FaDownload /> Resume
           </a>
           <button
             className="lg:hidden"

@@ -1,0 +1,15 @@
+{
+    "title": "Rate My school",
+    "description": "Rate My School is a platform that allows students to rate their schools and share their experiences with others. Users can rate schools based on various criteria such as academics, facilities, faculty, and extracurricular activities. The platform also provides information about schools, including their location, contact details, and reviews from other students. Users can search for schools based on their location, type, and rating, making it easier to find the right school for their needs.",
+    "tags": ["education", "school", "rating", "review", "student"],
+    "technologies": ["React", "Node.js", "Express", "MongoDB"],
+    "image": "./images/digi-chat.png",
+    "imageAlt": "Rate My School",
+    "links": {
+        "github": "www.github.com/ratemyshool",
+        "website": "www.ratemyshool.com",
+        "demo": "www.ratemyshool.com/demo",
+        "article": "www.ratemyshool.com/article"
+    },
+    "date": "2021-10-01"
+}
