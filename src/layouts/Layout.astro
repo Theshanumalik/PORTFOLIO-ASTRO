@@ -1,8 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
-import Navbar from "../components/Navbar";
-
 interface Props {
   title: string;
   description?: string;
@@ -20,11 +17,9 @@ const { title = "Theshanumalik", description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
   </head>
   <body>
     <div class="w-full max-w-5xl mx-auto">
-      <Navbar client:load />
       <div class="px-3">
         <slot />
       </div>

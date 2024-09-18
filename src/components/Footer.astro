@@ -25,13 +25,15 @@ const socialLinks = [
 ];
 ---
 
-<footer class="border-t">
-  <div class="py-4 px-3 flex justify-between items-center">
+<footer class="border-t border-gray-700 mx-auto max-w-2xl">
+  <div
+    class="py-4 px-3 flex justify-between items-center max-[355px]:flex-col max-[355px]:gap-3"
+  >
     <p>&copy; 2024 theshanumalik.</p>
     <ul>
       {
         socialLinks.map((link) => (
-          <li class="inline-block mx-2 text-gray-600 hover:text-gray-900 transition-colors">
+          <li class="inline-block mx-2 text-gray-600 hover:text-gray-700 transition-colors">
             <a href={link.url} target="_blank" rel="noopener noreferrer">
               <Icon name={link.icon} class="w-6 h-6" />
             </a>

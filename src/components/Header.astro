@@ -1,8 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import Hifi from "./Hifi";
-import WavyText from "./text-animate";
-import ImageAnimation from "./image-animate";
+import ProfileImage from "../../public/images/shanu-malik.jpg";
+import { Image } from "astro:assets";
 const SocialLinks = [
   {
     name: "GitHub",
@@ -27,36 +26,38 @@ const SocialLinks = [
 ];
 ---
 
-<header class="text-center h-[calc(60vh-70px)]">
-  <ImageAnimation
-    client:load
-    src="/images/profile.jpg"
-    wrapperClassName="h-[150px] w-[150px] rounded-full mx-auto my-4 overflow-hidden"
-    imageClassName="h-full w-full object-cover"
-    alt="Profile picture of shanu malik"
-  />
-  <h1 class="text-3xl font-semibold flex justify-center">
-    <Hifi client:load />
-    <WavyText client:load text="Hi, I am Shanu Malik" replay={true} />
-  </h1>
-  <p class="my-3 text-gray-700">
-    A passionate <b>MERN Stack Developer</b> based in jaipur, INDIA <br /> I love
-    to build Web applications and solve problems.
-  </p>
-  <ul class="flex items-center justify-center gap-3">
-    {
-      SocialLinks.map((link) => (
-        <li>
-          <a
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-700 hover:text-gray-900"
-          >
-            <Icon name={link.icon} size={30} />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<header
+  class="w-full max-w-2xl border border-gray-700 mx-auto p-4 rounded-xl my-10"
+>
+  <div class="flex items-center gap-3 max-sm:space-y-2 max-sm:block">
+    <Image
+      src={ProfileImage}
+      width={70}
+      height={70}
+      alt="Image of shanu malik"
+      quality={90}
+      class={"rounded-full object-cover"}
+    />
+    <div class="flex-1">
+      <h1 class="text-2xl font-semibold text-white">Shanu Malik</h1>
+      <p class="text-sm">Full Stack Developer {"("}MERN{")"}</p>
+    </div>
+
+    <ul class="flex gap-2">
+      {
+        SocialLinks.map((link) => (
+          <li>
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white hover:text-gray-400 transition-colors"
+            >
+              <Icon name={link.icon} size={24} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </header>

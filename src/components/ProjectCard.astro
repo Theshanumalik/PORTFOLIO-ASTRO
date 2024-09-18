@@ -5,76 +5,169 @@ import type { CollectionEntry } from "astro:content";
 
 type Props = {
   project: CollectionEntry<"projects">;
+  id: string;
 };
 
-const { project } = Astro.props;
+const { project, id } = Astro.props;
 ---
 
-<div>
+<div
+  class="border border-gray-700 p-3 rounded-xl backdrop-blur-sm shadow bg-gradient-to-tr to-zinc-700 from-slate-800 bg-opacity-65 hover:bg-gradient-to-tl transition-all duration-300 cursor-pointer space-y-2"
+  data-model-trigger={id}
+>
   <div
-    class="w-full aspect-video rounded-lg relative group/card overflow-hidden cursor-pointer"
+    class="relative after:w-full after:h-full after:bg-black after:absolute after:top-0 after:left-0 after:bg-opacity-30"
   >
-    <div class="w-full h-full">
-      <Image
-        src={project.data.image}
-        alt={project.data.title}
-        class="w-full h-full object-cover"
-      />
+    <Image
+      class="w-full h-48 object-cover rounded-lg"
+      src={project.data.image[0].src}
+      alt={project.data.title}
+      quality={40}
+      format="webp"
+    />
+  </div>
+  <h3 class="text-white">
+    {project.data.title}
+  </h3>
+  <p class="text-ellipsis line-clamp-2 text-sm">
+    {project.data.description}
+  </p>
+</div>
+<dialog data-model={id} class="modal" open>
+  <div class="modal-box max-w-xl p-3">
+    <div class="carousel w-full">
+      {
+        project.data.image.map((image, index) => (
+          <div id={`slide-${index}`} class="carousel-item relative w-full">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              quality={50}
+              format="webp"
+              class="w-full"
+            />
+            <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+              <a
+                href={
+                  index === 0
+                    ? `#slide-${project.data.image.length - 1}`
+                    : `#slide-${index - 1}`
+                }
+                class="btn btn-circle"
+              >
+                {"❮"}
+              </a>
+              <a
+                href={
+                  index === project.data.image.length - 1
+                    ? `#slide-0`
+                    : `#slide-${index + 1}`
+                }
+                class="btn btn-circle"
+              >
+                {"❯"}
+              </a>
+            </div>
+          </div>
+        ))
+      }
     </div>
-    <div
-      class="transition-all group-hover/card:top-0 group-hover/card:opacity-100 absolute w-full h-full top-full bg-slate-950/65 p-4 text-white space-y-1 backdrop-blur-md grid place-items-center opacity-0 duration-500"
-    >
-      <div class="flex gap-4">
+    <div class="collapse bg-base-200 collapse-arrow bg-transparent">
+      <input type="checkbox" />
+      <div class="collapse-title font-semibold">{project.data.title}</div>
+      <div class="collapse-content">
+        <p>{project.data.description}</p>
+      </div>
+    </div>
+    {
+      project.data.features && (
+        <div class="collapse bg-base-200 collapse-arrow bg-transparent">
+          <input type="checkbox" />
+          <div class="collapse-title font-semibold">Features</div>
+          <div class="collapse-content">
+            <ul class="list-disc ml-3">
+              {project.data.features?.map((item) => (
+                <li class="text-sm">{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )
+    }
+    <div class="px-3 space-y-3">
+      <div class="flex flex-wrap gap-3">
+        {
+          project.data.technologies.map((tech) => (
+            <span class="badge badge-outline badge-md px-4 py-3">{tech}</span>
+          ))
+        }
+      </div>
+      <h4>Links</h4>
+      <div class="flex gap-3">
         {
           project.data.links.website && (
-            <a class="text-3xl" href={project.data.links.website}>
-              <Icon name="mdi:web" title="Live Demo" />
+            <a
+              href={project.data.links.website}
+              class="btn btn-outline btn-sm rounded-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={"mdi:web"} />
+              Visit
             </a>
           )
         }
         {
           project.data.links.github && (
-            <a class="text-3xl" href={project.data.links.github}>
-              <Icon name="mdi:github" title="Source Code" />
+            <a
+              href={project.data.links.github}
+              class="btn btn-outline btn-sm rounded-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={"mdi:github"} />
+              Github
             </a>
           )
         }
         {
           project.data.links.article && (
-            <a class="text-3xl" href={project.data.links.article}>
-              <Icon name="mdi:book-open" title="Blog post" />
+            <a
+              href={project.data.links.article}
+              class="btn btn-outline btn-sm rounded-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={"mdi:book-open"} />
+              Article
             </a>
           )
         }
         {
           project.data.links.demo && (
-            <a class="text-3xl" href={project.data.links.demo}>
-              <Icon name="mdi:youtube" title="Video Demo" />
+            <a
+              href={project.data.links.demo}
+              class="btn btn-outline btn-sm rounded-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={"mdi:play"} />
+              Demo
             </a>
           )
         }
       </div>
+      <hr class="border-gray-700" />
+      <div class="flex flex-wrap gap-3">
+        {
+          project.data.tags.map((tag) => (
+            <span class="badge badge-sm badge-outline rounded-md">{tag}</span>
+          ))
+        }
+      </div>
     </div>
   </div>
-  <div class="px-2">
-    <h3 class="text-2xl font-bold mt-4">{project.data.title}</h3>
-    <p class="mt-2 line-clamp-3">{project.data.description}</p>
-    {
-      project.data.technologies && (
-        <div class="flex flex-wrap gap-2 mt-2">
-          {project.data.technologies.map((tech) => (
-            <span class="px-2 py-1 border border-yellow-400 text-yellow-400 rounded-md">
-              {tech}
-            </span>
-          ))}
-        </div>
-      )
-    }
-    <a
-      href={project.data.links.website || project.data.links.github}
-      class="bg-yellow-400 my-4 inline-block py-2 px-5 rounded-full hover:bg-yellow-500 text-black transition-colors duration-300 ease-in-out"
-    >
-      Read more
-    </a>
-  </div>
-</div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>

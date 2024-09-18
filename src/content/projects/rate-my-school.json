@@ -1,15 +1,33 @@
 {
-    "title": "Rate My school",
-    "description": "Rate My School is a platform that allows students to rate their schools and share their experiences with others. Users can rate schools based on various criteria such as academics, facilities, faculty, and extracurricular activities. The platform also provides information about schools, including their location, contact details, and reviews from other students. Users can search for schools based on their location, type, and rating, making it easier to find the right school for their needs.",
-    "tags": ["education", "school", "rating", "review", "student"],
-    "technologies": ["React", "Node.js", "Express", "MongoDB"],
-    "image": "./images/digi-chat.png",
-    "imageAlt": "Rate My School",
-    "links": {
-        "github": "www.github.com/ratemyshool",
-        "website": "www.ratemyshool.com",
-        "demo": "www.ratemyshool.com/demo",
-        "article": "www.ratemyshool.com/article"
-    },
-    "date": "2021-10-01"
+  "title": "FOMOFY",
+  "description": "FOMOFY is a simple and easy-to-use platform that helps you create beautiful and engaging FOMO popups for your website in minutes.",
+  "tags": ["SAAS", "Landing Page", "FOMO", "Marketing"],
+  "technologies": [
+    "NextJS 14",
+    "App Router",
+    "ReactJS",
+    "TailwindCSS",
+    "DaisyUI",
+    "MongoDB",
+    "Mongoose"
+  ],
+  "image": [
+    { "src": "./images/fomofy-1.png", "alt": "fomofy project iamge" },
+    { "src": "./images/fomofy-2.png", "alt": "fomofy project iamge" },
+    { "src": "./images/fomofy-3.png", "alt": "fomofy project iamge" },
+    { "src": "./images/fomofy-4.png", "alt": "fomofy project iamge" }
+  ],
+  "imageAlt": "Fomofy Images",
+  "links": {
+    "github": "www.github.com/theshanumalik/fomofy",
+    "website": "https://fomofy.vercel.app/",
+    "demo": "https://fomofy.vercel.app/",
+    "article": "https://theshanumalik.hashnode.dev/creating-my-first-saas-in-one-week-heres-how"
+  },
+  "features": [
+    "Create FOMO popups in minutes",
+    "Customize the popup to match your website's theme",
+    "Choose from a variety of templates"
+  ],
+  "date": "2024-08-03"
 }
