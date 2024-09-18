@@ -1,7 +1,7 @@
 /* empty css                                 */
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, a as renderComponent, b as addAttribute, j as renderUniqueStylesheet, k as renderScriptElement, l as createHeadAndContent, u as unescapeHTML, e as createAstro } from '../chunks/astro/server_CY37bJuI.mjs';
 import 'kleur/colors';
-import { a as $$Icon, $ as $$Layout } from '../chunks/Layout_ROsOfNvp.mjs';
+import { a as $$Icon, $ as $$Layout } from '../chunks/Layout_BOmPiW_n.mjs';
 import { $ as $$Image } from '../chunks/_astro_assets_CHj5dakx.mjs';
 import { Traverse } from 'neotraverse/modern';
 import pLimit from 'p-limit';
@@ -210,7 +210,7 @@ function createGetCollection({
       type === "content" ? contentCollectionToEntryMap[collection] : dataCollectionToEntryMap[collection]
     );
     let entries = [];
-    if (!Object.assign(__vite_import_meta_env__, { _: process.env._ })?.DEV && cacheEntriesByCollection.has(collection)) {
+    if (!Object.assign(__vite_import_meta_env__, {})?.DEV && cacheEntriesByCollection.has(collection)) {
       entries = cacheEntriesByCollection.get(collection);
     } else {
       const limit = pLimit(10);
@@ -398,7 +398,7 @@ const $$ProjectCard = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$ProjectCard;
   const { project, id } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<div class="border border-gray-700 p-3 rounded-xl backdrop-blur-sm shadow bg-gradient-to-tr to-zinc-700 from-slate-800 bg-opacity-65 hover:bg-gradient-to-tl transition-all duration-300 cursor-pointer space-y-2"${addAttribute(id, "data-model-trigger")}> <div class="relative after:w-full after:h-full after:bg-black after:absolute after:top-0 after:left-0 after:bg-opacity-30"> ${renderComponent($$result, "Image", $$Image, { "class": "w-full h-48 object-cover rounded-lg", "src": project.data.image[0].src, "alt": project.data.title, "quality": 40, "format": "webp" })} </div> <h3 class="text-white"> ${project.data.title} </h3> <p class="text-ellipsis line-clamp-2 text-sm"> ${project.data.description} </p> </div> <dialog${addAttribute(id, "data-model")} class="modal" open> <div class="modal-box max-w-xl p-3"> <div class="carousel w-full"> ${project.data.image.map((image, index) => renderTemplate`<div${addAttribute(`slide-${index}`, "id")} class="carousel-item relative w-full"> ${renderComponent($$result, "Image", $$Image, { "src": image.src, "alt": image.alt, "quality": 50, "format": "webp", "class": "w-full" })} <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"> <a${addAttribute(
+  return renderTemplate`${maybeRenderHead()}<div class="border border-gray-700 p-3 rounded-xl backdrop-blur-sm shadow bg-gradient-to-tr to-zinc-700 from-slate-800 bg-opacity-65 hover:bg-gradient-to-tl transition-all duration-300 cursor-pointer space-y-2"${addAttribute(id, "data-model-trigger")}> <div class="relative after:w-full after:h-full after:bg-black after:absolute after:top-0 after:left-0 after:bg-opacity-30"> ${renderComponent($$result, "Image", $$Image, { "class": "w-full h-48 object-cover rounded-lg", "src": project.data.image[0].src, "alt": project.data.title, "quality": 40, "format": "webp" })} </div> <h3 class="text-white"> ${project.data.title} </h3> <p class="text-ellipsis line-clamp-2 text-sm"> ${project.data.description} </p> </div> <dialog${addAttribute(id, "data-model")} class="modal"> <div class="modal-box max-w-xl p-3"> <div class="carousel w-full"> ${project.data.image.map((image, index) => renderTemplate`<div${addAttribute(`slide-${index}`, "id")} class="carousel-item relative w-full"> ${renderComponent($$result, "Image", $$Image, { "src": image.src, "alt": image.alt, "quality": 50, "format": "webp", "class": "w-full" })} <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"> <a${addAttribute(
     index === 0 ? `#slide-${project.data.image.length - 1}` : `#slide-${index - 1}`,
     "href"
   )} class="btn btn-circle"> ${"\u276E"} </a> <a${addAttribute(
