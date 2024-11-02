@@ -5,7 +5,10 @@ interface Props {
   description?: string;
 }
 
-const { title = "Theshanumalik", description } = Astro.props;
+const {
+  title = "Shannu Malik | Full-Stack Developer",
+  description = "Hi, It's Shanu Malik a fullstack web developer from Jaipur.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -15,8 +18,20 @@ const { title = "Theshanumalik", description } = Astro.props;
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="keywords"
+      content="Full-Stack Developer, MERN Stack, Web Developer,Jaipur Developer, Web Application Development"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="og:title" content={title} />
+    <meta name="og:description" content={description} />
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content="https://theshanumalik.vercel.app" />
+    <meta
+      name="og:image"
+      content="https://theshanumalik.vercel.app/images/preview.png"
+    />
   </head>
   <body>
     <div class="w-full max-w-5xl mx-auto">
