@@ -1,0 +1,21 @@
+{
+  "title": "LandingFix",
+  "description": "A Platform that analyzes your landing page and provides you with actionable insights to improve search rankings and conversion rate.",
+  "tags": ["SAAS", "Landing Page", "LandingFix", "Marketing", "analytics"],
+  "technologies": ["NextJS 14", "App Router", "ReactJS", "TailwindCSS"],
+  "image": [
+    { "src": "./images/landing-fix.png", "alt": "fomofy project iamge" }
+  ],
+  "imageAlt": "LandingFix project image",
+  "links": {
+    "github": "www.github.com/theshanumalik/landingfix",
+    "website": "https://landingfix.onrender.com/",
+    "demo": "https://landingfix.onrender.com/"
+  },
+  "features": [
+    "Analyze your landing page for SEO and conversion rate optimization",
+    "Get AI powerd actionable insights to improve your landing page",
+    "Analyze how fast your landing page loads and get suggestions to improve it"
+  ],
+  "date": "2024-20-09"
+}

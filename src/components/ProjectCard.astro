@@ -34,7 +34,7 @@ const { project, id } = Astro.props;
   </p>
 </div>
 <dialog data-model={id} class="modal">
-  <div class="modal-box max-w-xl p-3">
+  <div class="modal-box max-w-2xl p-3">
     <div class="carousel w-full">
       {
         project.data.image.map((image, index) => (
@@ -72,101 +72,94 @@ const { project, id } = Astro.props;
         ))
       }
     </div>
-    <div
-      class="collapse bg-base-200 collapse-arrow bg-transparent rounded-none border-b border-gray-700"
-    >
-      <input type="checkbox" />
-      <div class="collapse-title font-semibold">{project.data.title}</div>
-      <div class="collapse-content">
-        <p>{project.data.description}</p>
-      </div>
-    </div>
-    {
-      project.data.features && (
-        <div class="collapse bg-base-200 collapse-arrow bg-transparent rounded-none border-b border-gray-700 mb-4">
-          <input type="checkbox" />
-          <div class="collapse-title font-semibold">Features</div>
-          <div class="collapse-content">
-            <ul class="list-disc ml-3">
-              {project.data.features?.map((item) => (
-                <li class="text-sm">{item}</li>
-              ))}
-            </ul>
+    <div class="space-y-2 p-4">
+      <div>
+        <h1 class="text-lg font-semibold flex items-center justify-between">
+          {
+            project.data.links.website ? (
+              <a
+                href={project.data.links.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Visit Website"
+                class="hover:underline"
+              >
+                {project.data.title}
+              </a>
+            ) : (
+              <span>{project.data.title}</span>
+            )
+          }
+          <div class="flex gap-2">
+            {
+              project.data.links.demo && (
+                <a
+                  href={project.data.links.demo}
+                  target="_blank"
+                  title="Read Article"
+                  rel="noopener noreferrer"
+                  class="hover:text-gray-50"
+                >
+                  <Icon name="mdi:book-open" size={24} />
+                </a>
+              )
+            }
+            {
+              project.data.links.website && (
+                <a
+                  href={project.data.links.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Visit Website"
+                  class="hover:text-gray-50"
+                >
+                  <Icon name="mdi:web" size={24} />
+                </a>
+              )
+            }
+            {
+              project.data.links.github && (
+                <a
+                  href={project.data.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub Repository"
+                  class="hover:text-gray-50"
+                >
+                  <Icon name="mdi:github" size={24} />
+                </a>
+              )
+            }
           </div>
-        </div>
-      )
-    }
-    <div class="px-3 space-y-3">
-      <div class="flex flex-wrap gap-3">
-        {
-          project.data.technologies.map((tech) => (
-            <span class="badge badge-outline badge-md px-4 py-3">{tech}</span>
-          ))
-        }
+        </h1>
+        <p class="text-gray-400">{project.data.description}</p>
       </div>
-      <h4>Links</h4>
-      <div class="flex gap-3 flex-wrap">
-        {
-          project.data.links.website && (
-            <a
-              href={project.data.links.website}
-              class="btn btn-primary btn-sm rounded-full"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name={"mdi:web"} />
-              Live Site
-            </a>
-          )
-        }
-        {
-          project.data.links.github && (
-            <a
-              href={project.data.links.github}
-              class="btn btn-outline btn-sm rounded-full"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name={"mdi:github"} />
-              Github
-            </a>
-          )
-        }
-        {
-          project.data.links.article && (
-            <a
-              href={project.data.links.article}
-              class="btn btn-outline btn-sm rounded-full"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name={"mdi:book-open"} />
-              Article
-            </a>
-          )
-        }
-        {
-          project.data.links.demo && (
-            <a
-              href={project.data.links.demo}
-              class="btn btn-outline btn-sm rounded-full"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name={"mdi:play"} />
-              Demo
-            </a>
-          )
-        }
-      </div>
-      <hr class="border-gray-700" />
-    </div>
-    <div class="flex flex-wrap gap-3 mt-6 mb-4 ml-3 cursor-pointer">
+      <h3 class="font-semibold">Features</h3>
       {
-        project.data.tags.map((tag) => (
-          <span class="badge badge-sm badge-outline rounded-md">{tag}</span>
-        ))
+        project.data.features && (
+          <ul class="list-outside space-y-1">
+            {project.data.features?.map((item) => (
+              <li class="text-sm">
+                {"➡️"}
+                {item}
+              </li>
+            ))}
+          </ul>
+        )
       }
+
+      <div class="space-y-3">
+        <h3 class="font-semibold">Technologies</h3>
+        <div class="flex flex-wrap gap-3">
+          {
+            project.data.technologies.map((tech) => (
+              <span class="badge badge-outline badge-md px-4 py-4 uppercase rounded-lg">
+                {tech}
+              </span>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
   <form method="dialog" class="modal-backdrop">
